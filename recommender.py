@@ -78,4 +78,5 @@ if st.button('Recommend for a user - click!'):
 
     # adding a simple map-viz
     trips_viz = trips[trips.place_slug.isin(similar_cities)]
+    trips_viz.drop_duplicates(subset=['place_slug'], inplace=True) #keep only individual place_slug observations for mapping
     st.map(trips_viz)
